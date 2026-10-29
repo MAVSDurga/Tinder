@@ -1,21 +1,13 @@
 const express=require("express")
 const app=express();
-
-app.use("/Home",(req,res)=>{
-    res.send("Hello aruna!")
-});
-app.get("/Login",(req,res)=>{
-    res.send("Hello surya!")
-});
-app.post("/Regi",(req,res)=>{
-    res.send("Hello Durga!")
-});
-app.patch("/pss",(req,res)=>{
-    res.send("Hello Veera!")
-});
-app.delete("/dle",(req,res)=>{
-    res.send("Response deleted")
-});
+const { adminAuth } = require("../middleware/auth");
+app.use("/admin",adminAuth);
+app.get("/admin/getAllData",(req,res)=>{
+    res.send("All the data")
+})
+app.use("/admin/delAllData",(req,res)=>{
+    res.send("All the data deleted..")
+})
 app.listen(3000,()=>{
     console.log("hello");
 });

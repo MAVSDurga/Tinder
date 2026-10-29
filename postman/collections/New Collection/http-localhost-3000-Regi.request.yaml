@@ -1,8 +1,8 @@
 $kind: http-request
 name: http://localhost:3000/Regi
 description: ""
-url: http://localhost:3000/dle
-method: DELETE
+url: http://localhost:3000/pss
+method: PATCH
 body:
   type: json
   content: ""
