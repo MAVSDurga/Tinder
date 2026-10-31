@@ -1,11 +1,12 @@
 const express=require("express")
+require("./config/database")
 const app=express();
-const { adminAuth,loginAuth } = require("../middleware/auth");
+const { adminAuth,loginAuth } = require("./middleware/auth");
 app.use("/admin",adminAuth);
 app.use("/user",loginAuth);
 app.get("/admin/getAllData",(req,res)=>{
     res.send("All the data")
-})
+});
 app.use("/admin/delAllData",(req,res)=>{
     res.send("All the data deleted..")
 })
