@@ -13,10 +13,12 @@ app.use("/admin/delAllData",(req,res)=>{
 })
 app.post("/signup",async(req,res)=>{
     const user=new User({
-        fristName:"Arun",
-        lastName:"Naidu",
-        emailId:"Arunnaidu@gamil.com",
-        password:"Arun@123"
+        fristName: req.body.fristName,
+        lastName: req.body.lastName,
+        emailId: req.body.emailId,
+        password: req.body.password,
+        gender: req.body.gender,
+        skill:req.body.skill,
     });
     await user.save();
     res.send("User Added successfully");
@@ -39,9 +41,12 @@ app.get("/user",async(req,res)=>{
 });
 app.patch("/user",async(req,res)=>{
     const userId=req.body.userId;
-    const data=req.body.user;
+    const data=req.body;
     try{
-        await User.findByIdAndUpdate({_id:userId},data)
+        await User.findByIdAndUpdate({_id:userId},data,{
+            returnDocument:"after",
+            runValidators:true,
+        })
         res.send("User updated successfully");
     }catch (err){
         console.log(err)

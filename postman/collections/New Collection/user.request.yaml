@@ -1,5 +1,4 @@
 $kind: http-request
-name: http://localhost:3000/Regi
 description: ""
 url: http://localhost:3000/pss
 method: PATCH

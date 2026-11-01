@@ -1,0 +1,11 @@
+$kind: http-request
+url: http://localhost:3000/user
+method: PATCH
+body:
+  type: json
+  content: "{\r
+
+    \    \"userId\":\"6ae5fb346e36c18a34541986\"\r
+
+    }"
+order: 3000
