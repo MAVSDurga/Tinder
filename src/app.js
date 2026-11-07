@@ -19,9 +19,15 @@ app.post("/signup",async(req,res)=>{
         password: req.body.password,
         gender: req.body.gender,
         skill:req.body.skill,
-    });
-    await user.save();
+        photoUrl:req.body.photoUrl,
+    })
+    try{
+        await user.save();
     res.send("User Added successfully");
+    }catch(err){
+        res.status(400).send("Error saving the user:"+err.message);
+    }
+
 })
 app.get("/user",async(req,res)=>{
     try{
@@ -39,18 +45,32 @@ app.get("/user",async(req,res)=>{
         res.status(400).send("Somthing went wrong..")
     }
 });
-app.patch("/user",async(req,res)=>{
+app.patch("/user/:_Id",async(req,res)=>{
     const userId=req.body.userId;
     const data=req.body;
     try{
+        const ALLOWED_UPDATES=[
+        "photoUrl",
+        "about",
+        "gender",
+        "age",
+    ];
+        const isUpdateAllowed=Object.keys(data).every((k)=>
+        ALLOWED_UPDATES.includes(k));
+        if (!isUpdateAllowed){
+            res.status(400).send("Updates not allowed");
+        }
+        if(data?.skill?.length>10){
+            throw new error("Skills cannot be more than 10")
+        }
         await User.findByIdAndUpdate({_id:userId},data,{
             returnDocument:"after",
             runValidators:true,
         })
-        res.send("User updated successfully");
+        return res.send("User updated successfully");
     }catch (err){
         console.log(err)
-        res.status(400).send("Somthing went wrong");
+        res.status(400).send("Update failed"+err.message);
     }
 });
 app.listen(3000,()=>{

@@ -5,7 +5,11 @@ body:
   type: json
   content: "{\r
 
-    \    \"userId\":\"6ae5fb346e36c18a34541986\"\r
+    \    \"userId\":\"6ae72d28e3cf0993c053a33a\",\r
+
+    \    \"skill\":[\"javascript\",\"python\",\"HTML\"]\r
+
+    \r
 
     }"
 order: 3000
