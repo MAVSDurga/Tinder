@@ -1,0 +1,17 @@
+$kind: http-request
+url: http://localhost:3000/user/6aede322ce3a2e8203f4068d
+method: PATCH
+body:
+  type: json
+  content: "{\r
+
+    \    \"fristName\":\"Arunnnn\",\r
+
+    \    \"lastName\":\"\",\r
+
+    \    \"emailId\":\"vdhfgjasb@.com\",\r
+
+    \    \"password\":\"123\"\r
+
+    }"
+order: 3000

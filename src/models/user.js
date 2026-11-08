@@ -1,7 +1,7 @@
 const mongoose=require("mongoose");
 const validator=require("validator")
 const userSchema= new mongoose.Schema({
-        fristName:{
+        firstName:{
             type:String,
             required:true,
             minLength:4,
@@ -16,11 +16,11 @@ const userSchema= new mongoose.Schema({
             required:true,
             unique:true,
             trim:true,
-            validate(value){
-                if(!validator.isEmail(value)){
-                    throw new error("Invalid e-mail Addres")
-                }
-            }
+            // validate(value){
+            //     if(!validator.isEmail(value)){
+            //         throw new error("Invalid e-mail Addres")
+            //     }
+            // }
         },
         password:{
             type:String,
