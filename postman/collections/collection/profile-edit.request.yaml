@@ -1,0 +1,9 @@
+$kind: http-request
+name: profile\edit
+description: ""
+url: http://localhost:3000/profile/edit
+method: PATCH
+body:
+  type: json
+  content: ""
+order: 1969

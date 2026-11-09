@@ -1,16 +1,8 @@
 $kind: http-request
 description: ""
-url: http://localhost:3000/signup
+url: http://localhost:3000/connectionrequest
 method: POST
 body:
   type: json
-  content: |-
-    {
-        "fristName":"Arunaa",
-        "lastName":"mallipamula",
-        "emailId":"arunamallipamula@gmal.com",
-        "password":"Aruna@123",
-        "gender":"Female",
-        "skill":["javascript", "python"]
-    }
+  content: ""
 order: 1000
