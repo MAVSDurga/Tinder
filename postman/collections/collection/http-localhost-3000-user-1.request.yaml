@@ -1,0 +1,13 @@
+$kind: http-request
+name: http://localhost:3000/user
+description: ""
+url: http://localhost:3000/user
+method: PATCH
+body:
+  type: json
+  content: "{\r
+
+    \    \"emailId\":\"virat@kohli.com\" \r
+
+    }"
+order: 11000

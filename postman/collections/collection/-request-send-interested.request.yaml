@@ -1,0 +1,8 @@
+$kind: http-request
+name: /request/send/interested
+url: http://localhost:3000/request/send/interested/6af1f0e0a337c3b52f994882
+method: POST
+body:
+  type: json
+  content: ""
+order: 7169

@@ -3,4 +3,7 @@ name: http://localhost:3000/user
 description: ""
 url: http://localhost:3000/user
 method: GET
-order: 2000
+body:
+  type: json
+  content: ""
+order: 8000

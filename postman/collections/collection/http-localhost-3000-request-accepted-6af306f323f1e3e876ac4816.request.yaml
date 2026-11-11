@@ -1,0 +1,6 @@
+$kind: http-request
+name: http://localhost:3000/request/accepted/6af306f323f1e3e876ac4816
+description: ""
+url: http://localhost:3000/request/accepted/6af306f323f1e3e876ac4816
+method: POST
+order: 7984

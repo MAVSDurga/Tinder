@@ -18,6 +18,7 @@ const userSchema= new mongoose.Schema({
             required:true,
             unique:true,
             trim:true,
+            index:true,
             // validate(value){
             //     if(!validator.isEmail(value)){
             //         throw new error("Invalid e-mail Addres")
@@ -66,7 +67,8 @@ userSchema.methods.getJWT=async function() {
         const user=this;
         const token =await jwt.sign({_id:user._id},"DEV@2564tinder",{expiresIn:'1h'})
     return token;
-};
+};userSchema.index({firstName:1,lastName:1});
+
 userSchema.methods.validatePassword = async function(passwordInputByUser){
     const user = this;
     const passwordHash = user.password;
@@ -78,4 +80,4 @@ userSchema.methods.validatePassword = async function(passwordInputByUser){
 
     return isPasswordValid;
 }
-module.exports=mongoose.model("user",userSchema)
+module.exports=mongoose.model("User",userSchema)

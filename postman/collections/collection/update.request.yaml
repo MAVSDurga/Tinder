@@ -1,17 +1,13 @@
 $kind: http-request
-url: http://localhost:3000/user/6aede322ce3a2e8203f4068d
+url: http://localhost:3000/user/6aeea569eab03267ee37a7ba
 method: PATCH
 body:
   type: json
   content: "{\r
 
-    \    \"fristName\":\"Arunnnn\",\r
+    \    \"photoUrl\": \"https://example.com/photo.jpg\", \r
 
-    \    \"lastName\":\"\",\r
-
-    \    \"emailId\":\"vdhfgjasb@.com\",\r
-
-    \    \"password\":\"123\"\r
+    \    \"password\":\"sdsfnsk\"\r
 
     }"
-order: 3000
+order: 9000

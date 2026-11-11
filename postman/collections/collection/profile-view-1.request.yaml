@@ -1,5 +1,5 @@
 $kind: http-request
 name: profile\view
-url: http://localhost:3000/profile
+url: http://localhost:3000/profile/view
 method: GET
-order: 1957
+order: 5000

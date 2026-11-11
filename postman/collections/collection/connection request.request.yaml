@@ -1,4 +1,4 @@
 $kind: http-request
 url: http://localhost:3000/connectionrequest
 method: POST
-order: 6000
+order: 12000

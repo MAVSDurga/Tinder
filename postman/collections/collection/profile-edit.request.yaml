@@ -5,5 +5,11 @@ url: http://localhost:3000/profile/edit
 method: PATCH
 body:
   type: json
-  content: ""
-order: 1969
+  content: "{\r
+
+    \    \"firstName\":\"Durgaaaaa\",\r
+
+    \    \"lastName\":\"Mallipamula\"\r
+
+    }"
+order: 6000

@@ -10,10 +10,12 @@ app.use(express.json());
 app.use(cookieParser());
 const authRouter=require("./Routers/authentication");
 const profileRouter=require("./Routers/Profile");
-const requestRouter=require("./Routers/request"); 
+const requestRouter=require("./Routers/request");
+const userRouter=require("./Routers/user"); 
 app.use(authRouter);
 app.use(profileRouter);
 app.use(requestRouter);
+app.use(userRouter);
 app.get("/user",async(req,res)=>{
     try{
         const userEmail=req.body.emailId;

@@ -1,9 +1,0 @@
-$kind: http-request
-url: http://localhost:3000/login
-method: POST
-body:
-  type: json
-  content: "{\"emailId\":\"durga@gmail.com\",\r
-
-    \"password\":\"Durga@2004\"}"
-order: 1775
