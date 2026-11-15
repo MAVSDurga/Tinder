@@ -1,0 +1,6 @@
+$kind: http-request
+name: http://localhost:3000/user/connection
+description: ""
+url: http://localhost:3000/user/connection
+method: GET
+order: 7999

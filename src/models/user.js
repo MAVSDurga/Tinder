@@ -46,7 +46,7 @@ const userSchema= new mongoose.Schema({
             // default:"https://www.example.com/index.htmlalue",
             validate(value){
                if(!validator.isURL(value)){
-                    throw new error("Invalid URL type")
+                    throw new Error("Invalid URL type")
                 } 
             }
         },

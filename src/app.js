@@ -6,6 +6,11 @@ const User=require("./models/user")
 const cookieParser = require("cookie-parser");
 const jwt=require('jsonwebtoken');
 const user = require("./models/user");
+const cors=require("cors");
+app.use(cors({
+    origin:"http://localhost:5173",
+    credentials:true,
+}));
 app.use(express.json());
 app.use(cookieParser());
 const authRouter=require("./Routers/authentication");

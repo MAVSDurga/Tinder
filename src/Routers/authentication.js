@@ -7,7 +7,6 @@ const cookieParser = require("cookie-parser");
 const jwt=require('jsonwebtoken');
 authRouter.post("/signup",async(req,res)=>{
     // Data validsation
-
     try{
         signupvalidation(req);
         const {firstName,lastName,password,emailId}=(req.body)
@@ -26,28 +25,31 @@ authRouter.post("/signup",async(req,res)=>{
     }
 
 });
-authRouter.post("/login",async(req,res)=>{
-    try{
-        const {emailId,password}=(req.body)
-        const user =await User.findOne({emailId})
-        if(!user){
-            throw new Error("Invalid cradentials(email).")
-        }
-        console.log("User:", user);
-        const isPasswordValid = await user.validatePassword(password);
-        console.log("Password Match:", isPasswordValid);
-        if(!isPasswordValid){
-            throw new Error("Invalid cradentials.")
-        }
-        else{
-            const token=await user.getJWT()
-            res.cookie('token',token)
-            res.send("Login succussfully!")
-        }
-        console.log(token);
-    }catch(err){
-        res.status(400).send("Error saving the user:"+err.message);
+authRouter.post("/login", async (req, res) => {
+  try {
+    const { emailId, password } = req.body;
+    const user = await User.findOne({ emailId });
+    if (!user) {
+      throw new Error("Invalid credentials (email).");
     }
+    const isPasswordValid = await user.validatePassword(password);
+    if (!isPasswordValid) {
+      throw new Error("Invalid credentials.");
+    }
+    const token = await user.getJWT();
+    res.cookie("token", token);
+    const safeUser = user.toObject();
+    delete safeUser.password;
+    return res.status(200).json({
+      message: "Login successfully!",
+      data: safeUser
+    });
+
+  } catch (err) {
+    return res.status(400).json({
+      message: err.message
+    });
+  }
 });
 authRouter.post("/logout",async(req,res)=>{
     res.cookie("token",null,{
